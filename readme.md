@@ -1,5 +1,7 @@
 # Authority
 
+Adjusted
+
 A simple and flexible activity/resource based authorization system for PHP
 
 [![Build Status](https://travis-ci.org/machuga/authority.png?branch=develop)](https://travis-ci.org/machuga/authority)
@@ -12,7 +14,7 @@ Add Authority to your composer.json file to require Authority
 ```
 "require" : {
     "machuga/authority" : "dev-master"
-} 
+}
 ```
 
 And install via composer
@@ -32,7 +34,7 @@ First we'll use standard role-based authorization checks for roles that may be a
 ```php
 if ($user->hasRole('admin') || $user->hasRole('moderator') || $user->hasRole('editor')) {
     // Can perform actions on resource
-    $post->delete();   
+    $post->delete();
 }
 ```
 While this certainly works, it is highly prone to needing changes, and could get quite large as roles increase.
@@ -47,7 +49,7 @@ if ($authority->can('edit', $post)) {
 ```
 
 Instead of littering the codebase with several conditionals about user roles, we only need
-to write out a conditional that reads like "if the current user can edit this post". 
+to write out a conditional that reads like "if the current user can edit this post".
 
 ## Default behavior
 
@@ -58,11 +60,11 @@ Two important default behaviors of Authority to keep in mind
 
 ## Basic usage
 
-Authority is intented to be instantiated once per application (though supports multiple instances).  It works well with an IoC (Inversion of Control) container that supports singleton access, like [Laravel's IoC](https://github.com/illuminate/container), or by using standard dependency injection.  You may assign rules prior to your app authorizing resources, or add at any time.  
+Authority is intented to be instantiated once per application (though supports multiple instances).  It works well with an IoC (Inversion of Control) container that supports singleton access, like [Laravel's IoC](https://github.com/illuminate/container), or by using standard dependency injection.  You may assign rules prior to your app authorizing resources, or add at any time.
 
 The Authority constructor requires at least one argument - the object that represents the current user.  We'll cover the second optional argument later.
 
-```php    
+```php
 <?php
 
 use Authority\Authority;
@@ -120,7 +122,7 @@ If we run the above script, we will see:
     I can read about any user based on class!
     I can read about another user!
     I can delete my own user, so you see me :)
-    
+
 
 ## Intermediate Usage
 
